@@ -5,3 +5,6 @@
 [![Coverage Status](https://coveralls.io/repos/jrklasen/TrackRunning.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/jrklasen/TrackRunning.jl?branch=master)
 
 [![codecov.io](http://codecov.io/github/jrklasen/TrackRunning.jl/coverage.svg?branch=master)](http://codecov.io/github/jrklasen/TrackRunning.jl?branch=master)
+
+The creation of this package had the aim to get to know the Julia ecosystem, analyzing and 
+visualizing running-data is simply a means to an end.

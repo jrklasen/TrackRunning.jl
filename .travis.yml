@@ -4,12 +4,13 @@ os:
   - linux
   - osx
 julia:
-  - release
-  - nightly
+  - 0.6
 notifications:
   email: false
 # uncomment the following lines to override the default test script
-#script:
+script:
+  # need this to use Conda
+  - julia -e 'ENV["PYTHON"] = ""; Pkg.add("PyPlot"); Pkg.build("PyPlot")'
 #  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
 #  - julia -e 'Pkg.clone(pwd()); Pkg.build("TrackRunning"); Pkg.test("TrackRunning"; coverage=true)'
 after_success:
