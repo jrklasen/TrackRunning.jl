@@ -1,4 +1,4 @@
-immutable Run
+struct Run
     date::Vector{DateTime}
     lon::Vector{AbstractFloat}
     lat::Vector{AbstractFloat}
@@ -12,18 +12,18 @@ immutable Run
             error("'lon' and 'lat' differ in length")
         end
         if length(date) != n
-            error("'data' has incorrect length")
+            error("length of 'data' is not equal to the length of 'lon' and 'lat'")
         end
         if length(lap) == 0
             lap = one(n)
         elseif length(lap) != n
-            error("'lap' has incorrect length")
+            error("length of 'lap' is not equal to the length of 'lon' and 'lat'")
         end
         if  length(ele) != n & length(ele) != 0
-            error("'ele' has incorrect length")
+            error("length of 'ele' is not zero or equal to the length of 'lon' and 'lat'")
         end
         if  length(hr) != n & length(hr) != 0
-            error("'hr' has incorrect length")
+            error("length of 'hr' is not zero or equal to the length of 'lon' and 'lat'")
         end
         new(date, lon, lat, ele, lap, hr)
     end

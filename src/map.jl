@@ -1,4 +1,4 @@
-immutable MapCoordinates
+struct MapCoordinates
     lon_center::AbstractFloat
     lat_center::AbstractFloat
     lon_left::AbstractFloat

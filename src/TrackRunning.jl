@@ -1,9 +1,9 @@
 module TrackRunning
 
-import DataFrames: readtable, isna, deleterows!
-import FileIO: load
-import Images: channelview, rawview, permuteddimsview
-import PyPlot: xticks, yticks, imshow
+using DataFrames: readtable, isna, deleterows!
+using FileIO: load
+using Images: channelview, rawview, permuteddimsview
+using PyPlot: xticks, yticks, imshow
 
 export readttwatch, mapzoom, mapprojection, downloadmap, mapshow
 
