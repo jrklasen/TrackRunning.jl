@@ -1,5 +1,4 @@
 using TrackRunning
-using PyPlot
 using Base.Test
 
 # write your own tests here, run by: Pkg.test("TrackRunning")
@@ -19,6 +18,12 @@ end
     @test length(hike.hr) == 0
 end
 
+dist = distance(hike)
+@testset "Distance Tests" begin
+    @test length(dist) == length(hike.lon)
+    @test dist[1] == 0.0
+    @test dist[end] == 22047.97203642398
+end
 @test mapzoom(hike) == 13
 
 mapcoor = mapprojection(hike)
