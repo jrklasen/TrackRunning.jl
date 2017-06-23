@@ -1,7 +1,7 @@
 """
-    `mapshow(run)` Plotting of map for a given data set.
+    `showmap(run)` plotting of map for a given data set.
 """
-function mapshow(run::Run, minzoom::Integer = 0, maxzoom::Integer = 21,
+function showmap(run::Run, minzoom::Integer = 0, maxzoom::Integer = 21,
     mapservice::AbstractString="google", maptype::AbstractString="roadmap")
     mapcoor = mapprojection(run)
     mapfile = downloadmap(mapcoor)

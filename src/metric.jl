@@ -1,7 +1,7 @@
 """
-`distance(run)` estimation of the distance in meters
+    `dist_m(run)` estimation of the distance in meters.
 """
-function distance(run::Run)
+function dist_m(run::Run)
     lon = run.lon * pi / 180
     lat = run.lat * pi / 180
     d = zeros(length(lat) - 1)
@@ -15,28 +15,28 @@ function distance(run::Run)
 end
 
 """
-    `time(run)` calculates the time in sec.
+    `time_sec(run)` calculates the time in sec.
 """
-function time(run::Run)
+function time_sec(run::Run)
     cumsum(diff(run.date) / Base.Dates.Millisecond(1000))
 end
 
 """
-    `speed(run)` calculates the speed in km/h.
+    `speed_kmh(run)` calculates the speed in km/h.
 """
-function speed(run::Run)
-    m = distance(run)
-    sec = time(run)
+function speed_kmh(run::Run)
+    m = dist_m(run)
+    sec = time_sec(run)
     kmh = (m ./ 1000) ./ (sec ./ 3600)
     kmh
 end
 
 """
-    `pace(run)` calculates the pace in min/km.
+    `pace_minkm(run)` calculates the pace in min/km.
 """
-function pace(run::Run)
-    m = distance(run)
-    sec = time(run)
+function pace_minkm(run::Run)
+    m = dist_m(run)
+    sec = time_sec(run)
     minkm = (sec ./ 60) ./ (m ./ 1000)
     minkm
 end
