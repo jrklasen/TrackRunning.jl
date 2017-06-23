@@ -6,8 +6,8 @@ using Images: channelview, rawview, permuteddimsview
 using PyPlot: xticks, yticks, imshow
 
 export readttwatch
-export distance, time, speed, pace
-export mapzoom, mapprojection, downloadmap, mapshow
+export dist_m, time_sec, speed_kmh, pace_minkm
+export mapzoom, mapprojection, downloadmap, showmap
 
 include("run.jl")
 include("io.jl")

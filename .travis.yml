@@ -12,7 +12,7 @@ script:
   # need this to use Conda
   - julia -e 'ENV["PYTHON"] = ""; Pkg.add("PyPlot"); Pkg.build("PyPlot")'
   # - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  # - julia -e 'Pkg.clone(pwd()); Pkg.build("TrackRunning"); Pkg.test("TrackRunning"; coverage=true)'
+  - julia -e 'Pkg.clone(pwd()); Pkg.build("TrackRunning"); Pkg.test("TrackRunning"; coverage=true)'
 after_success:
   # # push coverage results to Coveralls
   # - julia -e 'cd(Pkg.dir("TrackRunning")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
