@@ -18,12 +18,34 @@ end
     @test length(hike.hr) == 0
 end
 
-dist = distance(hike)
+m = distance(hike)
 @testset "Distance Tests" begin
-    @test length(dist) == length(hike.lon)
-    @test dist[1] == 0.0
-    @test dist[end] == 22047.97203642398
+    @test length(m) == length(hike.lon) - 1
+    @test m[1] == 1.397334538266471
+    @test m[end] == 22047.97203642411
 end
+
+sec = TrackRunning.time(hike)
+@testset "Time Tests" begin
+    @test length(sec) == length(hike.lon) - 1
+    @test sec[1] == 1.0
+    @test sec[end] == 24893.0
+end
+
+kmh = speed(hike)
+@testset "Speed Tests" begin
+    @test length(kmh) == length(hike.lon) - 1
+    @test kmh[1] == 5.030404337759295
+    @test kmh[end] == 3.188554988596264
+end
+
+minkm = pace(hike)
+@testset "Pace Tests" begin
+    @test length(minkm) == length(hike.lon) - 1
+    @test minkm[1] == 11.92747063086502
+    @test minkm[end] == 18.817301321315625
+end
+
 @test mapzoom(hike) == 13
 
 mapcoor = mapprojection(hike)
