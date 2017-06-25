@@ -25,8 +25,8 @@ end
     `speed_kmh(run)` calculates the speed in km/h.
 """
 function speed_kmh(run::Run)
-    m = dist_m(run)
-    sec = time_sec(run)
+    m = diff(vcat(0.0, dist_m(run)))
+    sec = diff(vcat(0.0, time_sec(run)))
     kmh = (m ./ 1000) ./ (sec ./ 3600)
     kmh
 end
@@ -35,8 +35,8 @@ end
     `pace_minkm(run)` calculates the pace in min/km.
 """
 function pace_minkm(run::Run)
-    m = dist_m(run)
-    sec = time_sec(run)
+    m = diff(vcat(0.0, dist_m(run)))
+    sec = diff(vcat(0.0, time_sec(run)))
     minkm = (sec ./ 60) ./ (m ./ 1000)
     minkm
 end
