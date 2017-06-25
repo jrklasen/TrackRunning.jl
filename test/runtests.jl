@@ -10,40 +10,40 @@ try
 end
 
 @testset "Run Tests" begin
-    @test length(hike.date) == 24888
-    @test length(hike.lon) == 24888
-    @test length(hike.lat) == 24888
+    @test length(hike.date) == 24673
+    @test length(hike.lon) == 24673
+    @test length(hike.lat) == 24673
     @test length(hike.ele) == 0
-    @test length(hike.lap) == 24888
+    @test length(hike.lap) == 24673
     @test length(hike.hr) == 0
 end
 
 m = dist_m(hike)
 @testset "Distance Tests" begin
     @test length(m) == length(hike.lon) - 1
-    @test m[1] == 1.397334538266471
-    @test m[end] == 22047.97203642411
+    @test m[1] == 1.3861865460378313
+    @test m[end] == 21837.43277953098
 end
 
 sec = time_sec(hike)
 @testset "Time Tests" begin
     @test length(sec) == length(hike.lon) - 1
     @test sec[1] == 1.0
-    @test sec[end] == 24893.0
+    @test sec[end] == 24678.0
 end
 
 kmh = speed_kmh(hike)
 @testset "Speed Tests" begin
     @test length(kmh) == length(hike.lon) - 1
-    @test kmh[1] == 5.030404337759295
-    @test kmh[end] == 3.188554988596264
+    @test kmh[1] == 4.990271565736193
+    @test kmh[end] == 0.0
 end
 
 minkm = pace_minkm(hike)
 @testset "Pace Tests" begin
     @test length(minkm) == length(hike.lon) - 1
-    @test minkm[1] == 11.92747063086502
-    @test minkm[end] == 18.817301321315625
+    @test minkm[1] == 12.023393759162778
+    @test minkm[end] == Inf
 end
 
 @test mapzoom(hike) == 13
