@@ -4,6 +4,7 @@ using DataFrames: readtable, isna, deleterows!
 using FileIO: load
 using Images: channelview, rawview, permuteddimsview
 using PyPlot: xticks, yticks, imshow, scatter, ColorMap
+using SmoothingSplines: predict, fit, SmoothingSpline
 
 export readttwatch, readrun
 export dist_m, time_sec, speed_kmh, pace_minkm

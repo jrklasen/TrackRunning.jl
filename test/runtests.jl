@@ -18,13 +18,6 @@ end
     @test length(hike.hr) == 0
 end
 
-m = dist_m(hike)
-@testset "Distance Tests" begin
-    @test length(m) == length(hike.lon) - 1
-    @test m[1] == 1.3861865460378313
-    @test m[end] == 21837.43277953098
-end
-
 sec = time_sec(hike)
 @testset "Time Tests" begin
     @test length(sec) == length(hike.lon) - 1
@@ -32,17 +25,24 @@ sec = time_sec(hike)
     @test sec[end] == 24678.0
 end
 
+m = dist_m(hike)
+@testset "Distance Tests" begin
+    @test length(m) == length(hike.lon) - 1
+    @test m[1] == 1.2038457030465493
+    @test m[end] == 21865.947388700704
+end
+
 kmh = speed_kmh(hike)
 @testset "Speed Tests" begin
     @test length(kmh) == length(hike.lon) - 1
-    @test kmh[1] == 4.990271565736193
+    @test kmh[1] == 4.3338445309675775
     @test kmh[end] == 0.0
 end
 
 minkm = pace_minkm(hike)
 @testset "Pace Tests" begin
     @test length(minkm) == length(hike.lon) - 1
-    @test minkm[1] == 12.023393759162778
+    @test minkm[1] == 13.844520626263526
     @test minkm[end] == Inf
 end
 
