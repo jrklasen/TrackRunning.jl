@@ -5,7 +5,7 @@ using FileIO: load
 using Images: channelview, rawview, permuteddimsview
 using PyPlot: xticks, yticks, imshow
 
-export readttwatch
+export readttwatch, readrun
 export dist_m, time_sec, speed_kmh, pace_minkm
 export mapzoom, mapprojection, downloadmap, showmap
 
