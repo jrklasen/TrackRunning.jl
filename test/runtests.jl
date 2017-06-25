@@ -4,9 +4,9 @@ using Base.Test
 # write your own tests here, run by: Pkg.test("TrackRunning")
 
 try
-    global hike = readttwatch("./data/hiking.csv")
+    global hike = readrun("./data/hiking.csv")
   catch
-      error("Failed to read 'hiking.csv'")
+    error("Failed to read 'hiking.csv'")
 end
 
 @testset "Run Tests" begin
