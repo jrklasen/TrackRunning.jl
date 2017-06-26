@@ -9,7 +9,7 @@ end
     `dist_m(run, smoothing = true, λ = 500.0)` estimation of the distance in meters.
 """
 function dist_m(run::Run;
-    smoothing::Bool = true, λ::Float64 = 500.0)
+    smoothing::Bool = true, λ::AbstractFloat = 500.0)
     lon = run.lon * pi / 180
     lat = run.lat * pi / 180
     m1 = zeros(length(lat) - 1)
@@ -32,7 +32,7 @@ end
     `speed_kmh(run, smoothing = true, λ = 500.0)` calculates the speed in km/h.
 """
 function speed_kmh(run::Run;
-    smoothing::Bool = true, λ::Float64 = 500.0)
+    smoothing::Bool = true, λ::AbstractFloat = 500.0)
     m1 = diff(vcat(0.0, dist_m(run, smoothing = smoothing, λ = λ)))
     sec = time_sec(run)
     sec1 = diff(vcat(0.0, sec))
@@ -44,7 +44,7 @@ end
     `pace_minkm(run, smoothing = true, λ = 500.0)` calculates the pace in min/km.
 """
 function pace_minkm(run::Run;
-    smoothing::Bool = true, λ::Float64 = 500.0)
+    smoothing::Bool = true, λ::AbstractFloat = 500.0)
     m = diff(vcat(0.0, dist_m(run, smoothing = smoothing, λ = λ)))
     sec = diff(vcat(0.0, time_sec(run)))
     minkm = (sec ./ 60) ./ (m ./ 1000)

@@ -16,7 +16,7 @@ end
 """
     `plotrun(run::Run)` plot running data.
 """
-function plotrun(run::Run; s = 1.0)
+function plotrun(run::Run; s::AbstractFloat = 1.0)
     kmh = speed_kmh(run)
     kmh = kmh / maximum(kmh)
     scatter(run.lon[2:end], run.lat[2:end], c = kmh, cmap = ColorMap(:coolwarm), s = s)
