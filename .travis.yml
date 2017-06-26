@@ -10,7 +10,8 @@ notifications:
 # uncomment the following lines to override the default test script
 script:
   # need this to use Conda
-  - julia -e 'ENV["PYTHON"] = ""; Pkg.add("PyPlot"); Pkg.build("PyPlot")'
+  - julia -e 'ENV["PYTHON"] = ""; Pkg.add("PyPlot"); Pkg.build("PyPlot");
+      Pkg.add("SmoothingSplines"); Pkg.build("SmoothingSplines")'
   # - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'Pkg.clone(pwd()); Pkg.build("TrackRunning"); Pkg.test("TrackRunning"; coverage=true)'
 after_success:
