@@ -4,7 +4,8 @@ using Base.Test
 # write your own tests here, run by: Pkg.test("TrackRunning")
 
 try
-    global hike = readrun("./data/hiking.csv")
+    global hike = readrun(joinpath(Pkg.dir("TrackRunning"),
+        "example", "data", "hiking.csv"))
   catch
     error("Failed to read 'hiking.csv'")
 end
