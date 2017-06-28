@@ -11,7 +11,7 @@ Test coverage:
 Creating this package had the aim of getting to know the Julia ecosystem a little better.
 Analyzing and visualizing running-data is simply a means to an end.
 
-## Hiking in spain
+### Hiking in spain
 ```{julia}
 using TrackRunning
 using PyPlot
@@ -22,8 +22,6 @@ hike = readrun(joinpath(Pkg.dir("TrackRunning"),
 f = figure(figsize = (10, 10), dpi = 300)
 showmap(hike, maptype = "hybrid")
 plotrun(hike, s = .01)
-show()
-
 ```
 
-![alt text](https://github.com/jrklasen/TrackRunning.jl/blob/dev/example/plot/hiking.png)
+![hiking](https://github.com/jrklasen/TrackRunning.jl/blob/dev/example/plot/hiking.png?raw=true)
