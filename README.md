@@ -24,4 +24,4 @@ showmap(hike, maptype = "hybrid")
 plotrun(hike, s = .01)
 ```
 
-![hiking](https://github.com/jrklasen/TrackRunning.jl/blob/dev/example/plot/hiking.png?raw=true)
+![hiking](https://github.com/jrklasen/TrackRunning.jl/blob/master/example/plot/hiking.png?raw=true)
