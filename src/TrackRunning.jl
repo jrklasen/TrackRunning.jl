@@ -3,8 +3,9 @@ module TrackRunning
 using DataFrames: readtable, isna, deleterows!
 using FileIO: load
 using Images: channelview, rawview, permuteddimsview
-using PyPlot: xticks, yticks, imshow, scatter, ColorMap
 using SmoothingSplines: predict, fit, SmoothingSpline
+using Reexport
+@reexport using PyPlot #: xticks, yticks, imshow, scatter, ColorMap
 
 export readttwatch, readrun
 export dist_m, time_sec, speed_kmh, pace_minkm
@@ -16,4 +17,4 @@ include("metric.jl")
 include("map.jl")
 include("plot.jl")
 
-end # module
+end # module TrackRunning

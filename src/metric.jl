@@ -12,7 +12,7 @@ function dist_m(run::Run;
     smoothing::Bool = true, λ::AbstractFloat = 500.0)
     lon = run.lon * pi / 180
     lat = run.lat * pi / 180
-    m1 = zeros(length(lat) - 1)
+    m1 = Vector{Float64}(length(lat) - 1)
     for i in 2:length(lat)
         x = (lon[i] - lon[i - 1]) * cos(mean(lat[[i - 1, i]]))
         y = lat[i] - lat[i - 1]

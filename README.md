@@ -8,13 +8,12 @@ and Windows:
 Test coverage:
 [![codecov.io](http://codecov.io/github/jrklasen/TrackRunning.jl/coverage.svg?branch=master)](http://codecov.io/github/jrklasen/TrackRunning.jl?branch=master)
 
-Creating this package had the aim of getting to know the Julia ecosystem a little better.
-Analyzing and visualizing running-data is simply a means to an end.
 
-### Hiking in spain
-```{julia}
+The main aim of creating this package was working with Julia. Analyzing and visualizing running-data is simply a means to an end.
+
+### Hiking in Spain
+```julia
 using TrackRunning
-using PyPlot
 
 hike = readrun(joinpath(Pkg.dir("TrackRunning"),
     "example", "data", "hiking.csv"))
