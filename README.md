@@ -8,8 +8,8 @@ and Windows:
 Test coverage:
 [![codecov.io](http://codecov.io/github/jrklasen/TrackRunning.jl/coverage.svg?branch=master)](http://codecov.io/github/jrklasen/TrackRunning.jl?branch=master)
 
-Creating this package had mainly the aim of working with Julia. Analyzing and visualizing
-running-data is simply a means to an end.
+
+The main aim of creating this package was working with Julia. Analyzing and visualizing running-data is simply a means to an end.
 
 ### Hiking in Spain
 ```julia
@@ -23,4 +23,4 @@ showmap(hike, maptype = "hybrid")
 plotrun(hike, s = .01)
 ```
 
-![hiking](https://github.com/jrklasen/TrackRunning.jl/blob/dev/example/plot/hiking.png?raw=true)
+![hiking](https://github.com/jrklasen/TrackRunning.jl/blob/master/example/plot/hiking.png?raw=true)
