@@ -11,12 +11,22 @@ try
 end
 
 @testset "Run Tests" begin
+    @test length(hike) == 24673
     @test length(hike.date) == 24673
     @test length(hike.lon) == 24673
     @test length(hike.lat) == 24673
     @test length(hike.ele) == 0
     @test length(hike.lap) == 24673
     @test length(hike.hr) == 0
+
+    @test hike[end].date == [DateTime("2016-10-16T17:55:05")]
+    @test hike[(end-1):end].date == [DateTime("2016-10-16T17:55:04"); 
+                                     DateTime("2016-10-16T17:55:05")]
+    
+    @test start(hike) == 1
+    @test next(hike, 1)[2] == 2
+    @test done(hike, length(hike)) == false                      
+    @test done(hike, length(hike) + 1) == true
 end
 
 sec = time_sec(hike)
