@@ -1,9 +1,9 @@
 struct Run
+    lap::Vector{Integer}
     date::Vector{DateTime}
     lon::Vector{AbstractFloat}
     lat::Vector{AbstractFloat}
     ele::Vector{AbstractFloat}
-    lap::Vector{Integer}
     hr::Vector{Integer}
     function Run(date, lon, lat,
         ele=Vector{AbstractFloat}[], lap=Vector{Integer}[], hr=Vector{Integer}[])
@@ -25,7 +25,7 @@ struct Run
         if length(hr) != n & length(hr) != 0
             error("length of 'hr' is not zero or equal to the length of 'lon' and 'lat'")
         end
-        new(date, lon, lat, ele, lap, hr)
+        new(lap, date, lon, lat, ele, hr)
     end
 end
 
