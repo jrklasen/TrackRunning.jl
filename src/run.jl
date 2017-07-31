@@ -1,9 +1,9 @@
 struct Run
+    lap::Vector{Integer}
     date::Vector{DateTime}
     lon::Vector{AbstractFloat}
     lat::Vector{AbstractFloat}
     ele::Vector{AbstractFloat}
-    lap::Vector{Integer}
     hr::Vector{Integer}
     function Run(date, lon, lat,
         ele=Vector{AbstractFloat}[], lap=Vector{Integer}[], hr=Vector{Integer}[])
@@ -25,7 +25,7 @@ struct Run
         if length(hr) != n & length(hr) != 0
             error("length of 'hr' is not zero or equal to the length of 'lon' and 'lat'")
         end
-        new(date, lon, lat, ele, lap, hr)
+        new(lap, date, lon, lat, ele, hr)
     end
 end
 
@@ -37,6 +37,7 @@ Base.endof(run::Run) = length(run)
 function Base.getindex(run::Run, i::Number)
     i = convert(Int, i)
     1 <= i <= length(run) || throw(BoundsError(run, i))
+    lap = [run.lap[i]]
     date = [run.date[i]]
     lon = [run.lon[i]]
     lat = [run.lat[i]]
@@ -45,17 +46,18 @@ function Base.getindex(run::Run, i::Number)
     else
         ele = [run.ele[i]]
     end
-    lap = [run.lap[i]]
     if length(run.hr) == 0
         hr = run.hr
     else
         hr = [run.hr[i]]
     end
-    Run(date, lon, lat, ele, lap, hr)
+    Run(lap, date, lon, lat, ele, hr)
 end
+
 function Base.getindex(run::Run, i)
     1 <= minimum(i) <= length(run) || throw(BoundsError(run, i))
     1 <= maximum(i) <= length(run) || throw(BoundsError(run, i))
+    lap = [run.lap[j] for j in i]
     date = [run.date[j] for j in i]
     lon = [run.lon[j] for j in i]
     lat = [run.lat[j] for j in i]
@@ -64,15 +66,13 @@ function Base.getindex(run::Run, i)
     else
         ele = [run.ele[j] for j in i]
     end
-    lap = [run.lap[j] for j in i]
     if length(run.hr) == 0
         hr = run.hr
     else
         hr = [run.hr[j] for j in i]
     end
-    Run(date, lon, lat, ele, lap, hr)
+    Run(lap, date, lon, lat, ele, hr)
 end
-
 
 ## Iteration
 Base.start(run::Run) = 1
