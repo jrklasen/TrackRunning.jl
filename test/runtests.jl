@@ -22,7 +22,7 @@ end
     @test hike[end].date == [DateTime("2016-10-16T17:55:05")]
     @test hike[(end-1):end].date == [DateTime("2016-10-16T17:55:04"); 
                                      DateTime("2016-10-16T17:55:05")]
-
+  
     @test start(hike) == 1
     @test next(hike, 1)[2] == 2
     @test done(hike, length(hike)) == false                      
